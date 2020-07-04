@@ -3,7 +3,7 @@
     <mat-card-content >
         <mat-list role="list">
             <mat-list-item role="listitem">   
-                <span class="item-price">$ {{price}} </span>
+                <span class="item-price">$ {{price | currency:'COP'}} </span>
             </mat-list-item>
             <mat-list-item role="listitem">
                 <span class="item-name">{{name}} </span>

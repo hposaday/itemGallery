@@ -29,10 +29,10 @@
                         <input matInput placeholder="escria link de imagen..." [(ngModel)]="data.imageLink"  [disabled]="!isEditing && !isCreating">
                       </mat-form-field>
                 </mat-list-item>
-                <mat-list-item role="listitem">
+                <mat-list-item class="list-item-margin-extra" role="listitem">
                     <mat-form-field>
                         <mat-label>Descripción</mat-label>
-                        <input matInput placeholder="descripción..." [(ngModel)]="data.description"  [disabled]="!isEditing && !isCreating">
+                        <textarea  matInput rows="5" placeholder="descripción..." [(ngModel)]="data.description"  [disabled]="!isEditing && !isCreating"></textarea> 
                       </mat-form-field>
                 </mat-list-item>
               </mat-list>
