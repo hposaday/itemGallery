@@ -58,8 +58,10 @@ export class ItemBoardComponent implements OnInit {
     
 
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      
       if (result.action === 'push') {
-        this.itemService.pushItem(result)
+        this.itemService.pushItem(result.item)
       } else if (result.action === 'delete') {
         this.itemService.deleteItem(result.itemKey)
       } else {

@@ -20,6 +20,16 @@ export class ItemDetalisComponent implements OnInit {
     
     this.isEditing = false
     this.isCreating = this.data.key ? false : true
+
+    if (this.isCreating) {
+      this.data = {
+        name: '',
+        price: '',
+        category: '',
+        imageLink: '',
+        description: ''
+      }
+    }
     console.log(this.isEditing,'editig')
   }
 
@@ -31,6 +41,7 @@ export class ItemDetalisComponent implements OnInit {
     if (!this.data.name || !this.data.imageLink || !this.data.price) {
       alert('Recuerde que los campos Nombre, precio e imagen son obligatorios')
     } else {
+      Object.keys(this.data)
       this.dialogRef.close({
         action: 'push',
         item: this.data,
