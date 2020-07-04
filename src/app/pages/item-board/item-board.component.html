@@ -1,0 +1,28 @@
+<div class="grid-container">
+    <mat-grid-list cols="4" rowHeight="1:1.5" gutterSize="20px" >
+        <mat-grid-tile (click)="openDetails(item)" *ngFor="let item of retrievedItems$ | async">
+            <stg-item 
+                name="{{item.name}}"
+                price="{{item.price}}"
+                category="{{item.category}}"
+                imageLink="{{item.imageLink}}"
+                description="{{item.description}}" 
+                ></stg-item>
+        </mat-grid-tile>
+       
+            <mat-grid-tile (click)="openDetails(null)" >
+                <div style=" user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+              
+                -webkit-user-drag: none;
+                -webkit-tap-highlight-color: transparent;" matRipple matRippleColor="blue">
+                <img class="add-image" mat-card-image src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/add-circle-blue-512.png" alt="name">
+            </div>
+            </mat-grid-tile>
+          
+        
+      </mat-grid-list>
+
+</div>

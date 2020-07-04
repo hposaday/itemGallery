@@ -1,0 +1,48 @@
+<div class="details-grid-container">
+    <mat-grid-list cols="6" rowHeight="500px">
+        <mat-grid-tile colspan="2">
+            <img mat-card-image src="{{data.imageLink}}" alt="name">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="4">
+            <mat-list role="list">
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="nombre..." [(ngModel)]="data.name" [disabled]="!isEditing && !isCreating">
+                      </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <mat-label>Precio</mat-label>
+                        <input matInput placeholder="precio..." [(ngModel)]="data.price"  [disabled]="!isEditing && !isCreating">
+                      </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <mat-label>Categoria</mat-label>
+                        <input matInput placeholder="Categoria..." [(ngModel)]="data.category"  [disabled]="!isEditing && !isCreating">
+                      </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <mat-label>Link Imagen</mat-label>
+                        <input matInput placeholder="escria link de imagen..." [(ngModel)]="data.imageLink"  [disabled]="!isEditing && !isCreating">
+                      </mat-form-field>
+                </mat-list-item>
+                <mat-list-item role="listitem">
+                    <mat-form-field>
+                        <mat-label>Descripción</mat-label>
+                        <input matInput placeholder="descripción..." [(ngModel)]="data.description"  [disabled]="!isEditing && !isCreating">
+                      </mat-form-field>
+                </mat-list-item>
+              </mat-list>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <div mat-dialog-actions>
+        <button *ngIf="!isCreating" mat-raised-button color="primary" (click)="editItem()">{{ isEditing ? 'Guardar' : 'Editar'}}</button>
+        <button *ngIf="!isCreating" mat-raised-button  [mat-dialog-close]="data" cdkFocusInitial  [disabled]="isEditing">Salir</button>
+        <button *ngIf="isCreating" mat-raised-button color="primary" (click)="saveItem()">Guardar</button>
+        <button *ngIf="isCreating" mat-raised-button  mat-dialog-close cdkFocusInitial>Salir</button>
+        <button *ngIf="!isCreating" mat-raised-button color="warn"  (click)="deleteItem()" cdkFocusInitial>Eliminar</button>
+      </div>
+</div>
